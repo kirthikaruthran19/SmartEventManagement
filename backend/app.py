@@ -48,7 +48,14 @@ def create_app():
 
     CORS(
         app,
-        resources={r"/*": {"origins": "*"}},
+        resources={
+            r"/api/*": {
+                "origins": [
+                    "http://localhost:5173",
+                    "https://smarteventmanagement.netlify.app",
+                ]
+            }
+        },
         supports_credentials=True,
     )
 
@@ -73,22 +80,27 @@ def create_app():
         category_bp,
         url_prefix="/api/categories"
     )
+
     app.register_blueprint(
-    event_bp,
-    url_prefix="/api/events"
+        event_bp,
+        url_prefix="/api/events"
     )
+
     app.register_blueprint(
-    booking_bp,
-    url_prefix="/api/bookings"
-   )
+        booking_bp,
+        url_prefix="/api/bookings"
+    )
+
     app.register_blueprint(
-    dashboard_bp,
-    url_prefix="/api/dashboard"
-    )   
+        dashboard_bp,
+        url_prefix="/api/dashboard"
+    )
+
     app.register_blueprint(
-    admin_bp,
-    url_prefix="/api/admin"
-)
+        admin_bp,
+        url_prefix="/api/admin"
+    )
+
     # ==========================================================
     # Home Route
     # ==========================================================
