@@ -1,0 +1,98 @@
+:root{
+
+    /* Primary Colors */
+
+    --primary:#4F7CFF;
+    --primary-dark:#3B6BFF;
+    --secondary:#7B61FF;
+
+    /* Background */
+
+    --background:#F8FAFC;
+    --surface:#FFFFFF;
+
+    /* Text */
+
+    --text:#1E293B;
+    --text-light:#64748B;
+
+    /* Border */
+
+    --border:#E5E7EB;
+
+    /* Status */
+
+    --success:#10B981;
+    --warning:#F59E0B;
+    --danger:#EF4444;
+
+    /* Radius */
+
+    --radius-sm:10px;
+    --radius-md:16px;
+    --radius-lg:24px;
+    --radius-xl:30px;
+
+    /* Shadow */
+
+    --shadow-sm:
+        0 5px 15px rgba(0,0,0,.05);
+
+    --shadow-md:
+        0 12px 30px rgba(15,23,42,.08);
+
+    --shadow-lg:
+        0 25px 60px rgba(15,23,42,.10);
+
+    /* Gradient */
+
+    --gradient:
+        linear-gradient(
+            90deg,
+            #4F7CFF,
+            #7B61FF
+        );
+
+    --transition:.3s ease;
+}
+
+body{
+
+    background:var(--background);
+
+    color:var(--text);
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        sans-serif;
+
+    overflow-x:hidden;
+
+}
+
+a{
+
+    text-decoration:none;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+button{
+
+    transition:var(--transition);
+
+}
+
+.card{
+
+    border:none;
+
+}
