@@ -79,6 +79,11 @@ class Event(db.Model):
         db.String(20),
         default="Upcoming"
     )
+    approval_status = db.Column(
+    db.String(20),
+    nullable=False,
+    default="Pending"
+)
 
     # ==========================================================
     # Foreign Key

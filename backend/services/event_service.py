@@ -29,28 +29,29 @@ class EventService:
             }
 
         event = Event(
-            title=data["title"],
-            description=data["description"],
-            location=data["location"],
-            event_date=datetime.strptime(
-                data["event_date"],
-                "%Y-%m-%d"
-            ).date(),
-            event_time=datetime.strptime(
-                data["event_time"],
-                "%H:%M"
-            ).time(),
-            ticket_price=float(data["ticket_price"]),
-            available_seats=int(data["available_seats"]),
-            organizer=data["organizer"],
-            registration_deadline=datetime.strptime(
-                data["registration_deadline"],
-                "%Y-%m-%d"
-            ).date(),
-            image_url=data.get("image_url"),
-            status=data.get("status", "Upcoming"),
-            category_id=data["category_id"]
-        )
+    title=data["title"],
+    description=data["description"],
+    location=data["location"],
+    event_date=datetime.strptime(
+        data["event_date"],
+        "%Y-%m-%d"
+    ).date(),
+    event_time=datetime.strptime(
+        data["event_time"],
+        "%H:%M"
+    ).time(),
+    ticket_price=float(data["ticket_price"]),
+    available_seats=int(data["available_seats"]),
+    organizer=data["organizer"],
+    registration_deadline=datetime.strptime(
+        data["registration_deadline"],
+        "%Y-%m-%d"
+    ).date(),
+    image_url=data.get("image_url"),
+    status=data.get("status", "Upcoming"),
+    approval_status="Pending",
+    category_id=data["category_id"]
+)
 
         db.session.add(event)
         db.session.commit()
