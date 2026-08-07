@@ -4,7 +4,7 @@ import api from "./api";
 // Get All Events (Pagination)
 // ======================================
 
-export const getEvents = async (page = 1, perPage = 5) => {
+export const getEvents = async (page = 1, perPage = 100) => {
     const response = await api.get("/events/", {
         params: {
             page,
