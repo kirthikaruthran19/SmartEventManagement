@@ -50,7 +50,7 @@ class CategoryService:
         Get all categories.
         """
 
-        categories = Category.query.order_by(Category.id.desc()).all()
+        categories = Category.query.order_by(Category.id).all()
 
         return [category.to_dict() for category in categories]
 
