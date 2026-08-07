@@ -207,3 +207,43 @@ def change_password():
         "success": True,
         "message": "Password changed successfully."
     }), 200
+
+
+    # ==========================================================
+# Create Admin (Temporary Route)
+# ==========================================================
+
+@auth_bp.route("/create-admin", methods=["GET"])
+def create_admin():
+
+    admin = User.query.filter_by(email="admin@gmail.com").first()
+
+    if admin:
+        admin.role = "admin"
+        admin.password = hash_password("Admin@123")
+        admin.is_active = True
+
+        db.session.commit()
+
+        return jsonify({
+            "success": True,
+            "message": "Admin updated successfully."
+        }), 200
+
+    admin = User(
+        full_name="System Administrator",
+        email="admin@gmail.com",
+        password=hash_password("Admin@123"),
+        phone="9999999999",
+        address="Head Office",
+        role="admin",
+        is_active=True
+    )
+
+    db.session.add(admin)
+    db.session.commit()
+
+    return jsonify({
+        "success": True,
+        "message": "Admin created successfully."
+    }), 201
